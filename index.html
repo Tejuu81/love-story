@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Love Story 💗</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="ambient ambient-three"></div>
+
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <header class="topbar">
+        <div class="brand">
+            <span class="brand-heart">♥</span>
+            <span>OUR LITTLE UNIVERSE</span>
+        </div>
+
+        <button class="music-button" id="musicBtn" type="button">
+            <span id="musicIcon">♫</span>
+            <span id="musicLabel">Play Our Music</span>
+        </button>
+    </header>
+
+    <main class="story-container">
+
+        <!-- PAGE 1: WELCOME -->
+
+        <section class="page active" id="page1">
+            <div class="cinema-tag">A STORY WRITTEN BY TWO HEARTS</div>
+
+            <div class="hero-heart-wrap">
+                <div class="hero-orbit orbit-one"></div>
+                <div class="hero-orbit orbit-two"></div>
+                <div class="hero-heart">♥</div>
+                <span class="orbit-star star-one">✦</span>
+                <span class="orbit-star star-two">✧</span>
+                <span class="orbit-star star-three">✦</span>
+            </div>
+
+            <p class="eyebrow">TO MY FAVOURITE PERSON</p>
+
+            <h1 class="hero-title">
+                My Dear
+                <span>Husband</span>
+            </h1>
+
+            <div class="gold-line"></div>
+
+            <p class="romantic-caption">
+                If my heart could choose a home,<br>
+                it would choose you every time.<br>
+                In every lifetime, in every universe,<br>
+                I would still find my way to you. ♥
+            </p>
+
+            <button class="primary-button" id="beginBtn" type="button">
+                <span>Begin Our Story</span>
+                <span class="button-heart">♥</span>
+            </button>
+
+            <p class="bottom-note">ONE HEART · ONE STORY · ENDLESS LOVE</p>
+        </section>
+
+
+        <!-- PAGE 2: CALENDAR -->
+
+        <section class="page" id="page2">
+            <div class="page-symbol calendar-symbol">♥</div>
+
+            <p class="eyebrow">CHAPTER ONE · OUR DAY</p>
+
+            <h2 class="page-title">
+                Choose Our
+                <span>Little Forever</span>
+            </h2>
+
+            <p class="romantic-caption">
+                Every date is just another day,<br>
+                until it becomes a memory with you.<br>
+                Let us choose a day for our story,<br>
+                a day my heart will always remember. ♥
+            </p>
+
+            <div class="calendar-card">
+                <div class="calendar-header">
+                    <button class="calendar-arrow" id="prev" type="button" aria-label="Previous month">‹</button>
+                    <div>
+                        <h3 id="month">Month</h3>
+                        <p class="calendar-subtitle">A date made for us</p>
+                    </div>
+                    <button class="calendar-arrow" id="next" type="button" aria-label="Next month">›</button>
+                </div>
+
+                <div class="weekdays">
+                    <span>Su</span>
+                    <span>Mo</span>
+                    <span>Tu</span>
+                    <span>We</span>
+                    <span>Th</span>
+                    <span>Fr</span>
+                    <span>Sa</span>
+                </div>
+
+                <div class="calendar-grid" id="days"></div>
+
+                <div class="selected-date">
+                    <span class="selected-heart">♥</span>
+                    <div>
+                        <span class="small-label">OUR CHOSEN DATE</span>
+                        <p id="dateText">Choose a date from the calendar</p>
+                    </div>
+                </div>
+
+                <p class="date-status" id="dateStatus">
+                    Tap a heart to choose our special day.
+                </p>
+            </div>
+
+            <div class="navigation-buttons">
+                <button class="secondary-button" data-back="page1" type="button">← Back</button>
+                <button class="primary-button" id="dateBtn" type="button">
+                    Save Our Date ♥
+                </button>
+            </div>
+        </section>
+
+
+        <!-- PAGE 3: PICKUP TIME -->
+
+        <section class="page" id="page3">
+            <div class="page-symbol star-symbol">✦</div>
+
+            <p class="eyebrow">CHAPTER TWO · THE BEGINNING</p>
+
+            <h2 class="page-title">
+                When Should
+                <span>I Pick You Up?</span>
+            </h2>
+
+            <p class="romantic-caption">
+                Tell me the time, and I will be there.<br>
+                No grand plan could mean more to me<br>
+                than seeing your beautiful smile<br>
+                and beginning our little adventure together. ✨
+            </p>
+
+            <div class="time-card">
+                <div class="decorative-stars">✧　✦　✧</div>
+
+                <label for="pickupTime">OUR MEETING TIME</label>
+
+                <div class="time-input-wrap">
+                    <span>♡</span>
+                    <input type="time" id="pickupTime" value="10:00">
+                </div>
+
+                <p class="time-note">I'll be looking forward to that moment. ♥</p>
+            </div>
+
+            <div class="navigation-buttons">
+                <button class="secondary-button" data-back="page2" type="button">← Back</button>
+                <button class="primary-button" id="pickupBtn" type="button">Next Chapter ♥</button>
+            </div>
+        </section>
+
+
+        <!-- PAGE 4: TEMPLE -->
+
+        <section class="page" id="page4">
+            <div class="page-symbol lotus-symbol">❀</div>
+
+            <p class="eyebrow">CHAPTER THREE · PEACE & TOGETHERNESS</p>
+
+            <h2 class="page-title">
+                A Little Prayer,
+                <span>A Lifetime Together</span>
+            </h2>
+
+            <p class="romantic-caption">
+                Some moments feel more beautiful in silence.<br>
+                A peaceful place, a prayer from the heart,<br>
+                and your hand close to mine.<br>
+                Which place shall we visit together? 🌹
+            </p>
+
+            <div class="choice-grid" data-group="temple">
+
+                <button class="choice-card" data-value="A peaceful temple" type="button">
+                    <span class="choice-icon">🪷</span>
+                    <span class="choice-title">A Peaceful Temple</span>
+                    <span class="choice-description">A quiet moment of gratitude</span>
+                    <span class="choice-check">♥</span>
+                </button>
+
+                <button class="choice-card" data-value="A beautiful garden" type="button">
+                    <span class="choice-icon">🌸</span>
+                    <span class="choice-title">A Beautiful Garden</span>
+                    <span class="choice-description">Flowers, fresh air and us</span>
+                    <span class="choice-check">♥</span>
+                </button>
+
+                <button class="choice-card" data-value="A peaceful lakeside" type="button">
+                    <span class="choice-icon">🌅</span>
+                    <span class="choice-title">A Peaceful Lakeside</span>
+                    <span class="choice-description">A little calm beside the water</span>
+                    <span class="choice-check">♥</span>
+                </button>
+
+                <button class="choice-card" data-value="A surprise destination" type="button">
+                    <span class="choice-icon">🎀</span>
+                    <span class="choice-title">Surprise Me</span>
+                    <span class="choice-description">Let love choose our destination</span>
+                    <span class="choice-check">♥</span>
+                </button>
+
+            </div>
+
+            <div class="navigation-buttons">
+                <button class="secondary-button" data-back="page3" type="button">← Back</button>
+                <button class="primary-button" id="templeBtn" type="button">Continue ♥</button>
+            </div>
+        </section>
+
+
+        <!-- PAGE 5: LUNCH -->
+
+        <section class="page" id="page5">
+            <div class="page-symbol food-symbol">♡</div>
+
+            <p class="eyebrow">CHAPTER FOUR · A TASTE OF HAPPINESS</p>
+
+            <h2 class="page-title">
+                Love Is Sweet,
+                <span>Especially With You</span>
+            </h2>
+
+            <p class="romantic-caption">
+                A table for two and time to spare,<br>
+                a favourite meal and stories to share.<br>
+                The food may be delicious,<br>
+                but your company will be my favourite part. 💗
+            </p>
+
+            <div class="choice-grid" data-group="lunch">
+
+                <button class="choice-card" data-value="Italian food" type="button">
+                    <span class="choice-icon">🍝</span>
+                    <span class="choice-title">Italian</span>
+                    <span class="choice-description">Pasta, pizza and lovely moments</span>
+                    <span class="choice-check">♥</span>
+                </button>
+
+                <button class="choice-card" data-value="Indian food" type="button">
+                    <span class="choice-icon">🍛</span>
+                    <span class="choice-title">Indian</span>
+                    <span class="choice-description">Our favourite flavours</span>
+                    <span class="choice-check">♥</span>
+                </button>
+
+                <button class="choice-card" data-value="Cafe food" type="button">
+                    <span class="choice-icon">☕</span>
+                    <span class="choice-title">Cute Café</span>
+                    <span class="choice-description">Coffee, snacks and conversations</span>
+                    <span class="choice-check">♥</span>
+                </button>
+
+                <button class="choice-card" data-value="A surprise lunch" type="button">
+                    <span class="choice-icon">🎁</span>
+                    <span class="choice-title">Your Surprise</span>
+                    <span class="choice-description">Anything, as long as we're together</span>
+                    <span class="choice-check">♥</span>
+                </button>
+
+            </div>
+
+            <div class="navigation-buttons">
+                <button class="secondary-button" data-back="page4" type="button">← Back</button>
+                <button class="primary-button" id="lunchBtn" type="button">Next Chapter ♥</button>
+            </div>
+        </section>
+
+
+        <!-- PAGE 6: PICNIC -->
+
+        <section class="page" id="page6">
+            <div class="page-symbol picnic-symbol">✿</div>
+
+            <p class="eyebrow">CHAPTER FIVE · LITTLE ADVENTURES</p>
+
+            <h2 class="page-title">
+                Just You,
+                <span>Me & The World</span>
+            </h2>
+
+            <p class="romantic-caption">
+                We do not need a perfect destination.<br>
+                Give me a little sunshine and your laughter,<br>
+                a place to sit and dreams to talk about,<br>
+                and I will call it a perfect afternoon. 🌷
+            </p>
+
+            <div class="choice-grid" data-group="picnic">
+
+                <button class="choice-card" data-value="A sunset picnic" type="button">
+                    <span class="choice-icon">🌇</span>
+                    <span class="choice-title">Sunset Picnic</span>
+                    <span class="choice-description">Golden skies and warm memories</span>
+                    <span class="choice-check">♥</span>
+                </button>
+
+                <button class="choice-card" data-value="A garden picnic" type="button">
+                    <span class="choice-icon">🌿</span>
+                    <span class="choice-title">Garden Picnic</span>
+                    <span class="choice-description">Flowers and peaceful moments</span>
+                    <span class="choice-check">♥</span>
+                </button>
+
+                <button class="choice-card" data-value="A scenic drive" type="button">
+                    <span class="choice-icon">🚗</span>
+                    <span class="choice-title">Scenic Drive</span>
+                    <span class="choice-description">Music, roads and our stories</span>
+                    <span class="choice-check">♥</span>
+                </button>
+
+                <button class="choice-card" data-value="A surprise adventure" type="button">
+                    <span class="choice-icon">✨</span>
+                    <span class="choice-title">A Little Surprise</span>
+                    <span class="choice-description">An adventure we will remember</span>
+                    <span class="choice-check">♥</span>
+                </button>
+
+            </div>
+
+            <div class="navigation-buttons">
+                <button class="secondary-button" data-back="page5" type="button">← Back</button>
+                <button class="primary-button" id="picnicBtn" type="button">Almost There ♥</button>
+            </div>
+        </section>
+
+
+        <!-- PAGE 7: DINNER AND NOTE -->
+
+        <section class="page" id="page7">
+            <div class="page-symbol moon-symbol">☾</div>
+
+            <p class="eyebrow">CHAPTER SIX · UNDER THE STARS</p>
+
+            <h2 class="page-title">
+                One Last Stop,
+                <span>Before Our Day Ends</span>
+            </h2>
+
+            <p class="romantic-caption">
+                When the evening paints the sky in gold,<br>
+                I hope we have a thousand little stories told.<br>
+                Let the world slow down for a while,<br>
+                and let us end the day with one more smile. 🌙
+            </p>
+
+            <div class="dinner-card">
+                <label class="section-label">OUR EVENING PLAN</label>
+
+                <div class="choice-grid compact-grid" data-group="dinner">
+
+                    <button class="choice-card" data-value="Romantic candlelight dinner" type="button">
+                        <span class="choice-icon">🕯️</span>
+                        <span class="choice-title">Candlelight Dinner</span>
+                        <span class="choice-check">♥</span>
+                    </button>
+
+                    <button class="choice-card" data-value="A rooftop dinner" type="button">
+                        <span class="choice-icon">🌃</span>
+                        <span class="choice-title">Rooftop Dinner</span>
+                        <span class="choice-check">♥</span>
+                    </button>
+
+                    <button class="choice-card" data-value="A cosy café evening" type="button">
+                        <span class="choice-icon">☕</span>
+                        <span class="choice-title">Cosy Café</span>
+                        <span class="choice-check">♥</span>
+                    </button>
+
+                    <button class="choice-card" data-value="A surprise evening" type="button">
+                        <span class="choice-icon">💝</span>
+                        <span class="choice-title">Surprise Me</span>
+                        <span class="choice-check">♥</span>
+                    </button>
+
+                </div>
+
+                <label for="dinnerTime" class="section-label dinner-time-label">
+                    WHAT TIME SHALL WE GO?
+                </label>
+
+                <div class="time-input-wrap">
+                    <span>♥</span>
+                    <input type="time" id="dinnerTime" value="19:00">
+                </div>
+
+                <label for="note" class="section-label personal-note-label">
+                    A LITTLE MESSAGE FOR ME
+                </label>
+
+                <textarea id="note" maxlength="250" placeholder="Write something from your heart... ♥"></textarea>
+            </div>
+
+            <div class="navigation-buttons">
+                <button class="secondary-button" data-back="page6" type="button">← Back</button>
+                <button class="primary-button" id="finishBtn" type="button">Reveal Our Story ♥</button>
+            </div>
+        </section>
+
+
+        <!-- PAGE 8: FINAL SUMMARY -->
+
+        <section class="page" id="page8">
+            <div class="final-heart-wrap">
+                <div class="final-heart">♥</div>
+                <span class="final-sparkle sparkle-one">✦</span>
+                <span class="final-sparkle sparkle-two">✧</span>
+                <span class="final-sparkle sparkle-three">✦</span>
+            </div>
+
+            <p class="eyebrow">AND SO, OUR LITTLE STORY BEGINS</p>
+
+            <h2 class="page-title final-title">
+                A Day With You,
+                <span>A Memory Forever</span>
+            </h2>
+
+            <p class="romantic-caption">
+                Plans may change, and time may fly,<br>
+                but my favourite moments will always be ours.<br>
+                This is not about a perfect day,<br>
+                it is about making beautiful memories together. ♥
+            </p>
+
+            <div class="summary-card">
+                <div class="summary-heading">
+                    <span>♥</span>
+                    <h3>OUR LITTLE LOVE PLAN</h3>
+                    <span>♥</span>
+                </div>
+
+                <div id="summary" class="summary-content"></div>
+
+                <div class="summary-footer">
+                    MADE WITH LOVE, JUST FOR YOU
+                    <span>♥</span>
+                </div>
+            </div>
+
+            <div class="final-actions">
+                <button class="primary-button" id="copyBtn" type="button">Copy Our Plan ♥</button>
+                <button class="secondary-button share-button" id="shareBtn" type="button">Share Our Story ↗</button>
+                <button class="text-button" id="replayBtn" type="button">↻ Relive Our Story</button>
+            </div>
+
+            <p class="final-signature">Forever a little more in love with you. ♥</p>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <span>♥</span>
+        SOME STORIES ARE WRITTEN IN THE STARS
+        <span>♥</span>
+    </footer>
+
+    <audio id="backgroundMusic" src="song.mp3" loop preload="auto"></audio>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
