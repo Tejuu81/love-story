@@ -678,7 +678,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const enteredPassword = passwordInput.value.trim();
 
-        if (enteredPassword === "abc") {
+        if (enteredPassword === "आहो 🫶🏻❤️🫶🏻 माझं तुमच्यावर खूप खूप प्रेम आहे! 🥹❤️‍🩹🫶🏻") {
             passwordError.textContent = "";
             passwordScreen.classList.add("password-hidden");
 
