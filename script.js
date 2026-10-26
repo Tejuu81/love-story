@@ -653,3 +653,53 @@ window.addEventListener("beforeunload", () => {
     clearInterval(heartTimer);
 });
 
+
+// CINEMATIC PASSWORD UNLOCK
+
+document.addEventListener("DOMContentLoaded", function () {
+    const passwordForm = document.getElementById("passwordForm");
+    const passwordInput = document.getElementById("secretPassword");
+    const passwordScreen = document.getElementById("passwordScreen");
+    const passwordError = document.getElementById("passwordError");
+    const passwordCard = document.querySelector(".password-card");
+
+    if (
+        !passwordForm ||
+        !passwordInput ||
+        !passwordScreen ||
+        !passwordError ||
+        !passwordCard
+    ) {
+        return;
+    }
+
+    passwordForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const enteredPassword = passwordInput.value.trim();
+
+        if (enteredPassword === "abc") {
+            passwordError.textContent = "";
+            passwordScreen.classList.add("password-hidden");
+
+            // Remove the intro screen after its fade-out.
+            window.setTimeout(function () {
+                passwordScreen.style.display = "none";
+            }, 850);
+
+        } else {
+            passwordError.textContent =
+                "आहो ❤️! पासवर्ड चुकीचा आहे. पुन्हा प्रयत्न करा ❤️";
+
+            passwordCard.classList.remove("password-shake");
+
+            // Restart the shake animation.
+            void passwordCard.offsetWidth;
+
+            passwordCard.classList.add("password-shake");
+            passwordInput.value = "";
+            passwordInput.focus();
+        }
+    });
+});
+
