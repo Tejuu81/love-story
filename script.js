@@ -673,7 +673,7 @@ window.addEventListener("beforeunload", () => {
 
             const enteredPassword = passwordInput.value.trim();
 
-            if (enteredPassword === "love123") {
+            if (enteredPassword === "आहो💛🩷 माझं तुमच्यावर खूप खूप प्रेम आहे! 🥹❤️‍🩹🫶🏻") {
                 passwordError.textContent = "";
                 passwordScreen.classList.add("password-hidden");
 
