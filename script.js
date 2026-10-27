@@ -478,228 +478,224 @@ $("#shareBtn").addEventListener("click", () => {
     const message = getPlainTextSummary();
 
     const whatsappUrl =
-        "https://wa.me/?text=" + encodeURIComponent(message);
-
-    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
-});
-
-
-/* =========================================
-   MUSIC
-========================================= */
-
-function updateMusicButton(isPlaying) {
-    musicIcon.textContent = isPlaying ? "♫" : "♪";
-    musicLabel.textContent = isPlaying ? "Music Playing" : "Play Our Music";
-
-    musicBtn.setAttribute("aria-pressed", String(isPlaying));
-}
-
-musicBtn.addEventListener("click", async () => {
-    if (music.paused) {
-        try {
-            await music.play();
-            updateMusicButton(true);
-            showToast("Let our song play in the background. ♫");
-        } catch (error) {
-            updateMusicButton(false);
-            showToast("Add song.mp3 to the website folder to play music.");
-        }
-    } else {
-        music.pause();
-        updateMusicButton(false);
-    }
-});
-
-music.addEventListener("play", () => {
-    updateMusicButton(true);
-});
-
-music.addEventListener("pause", () => {
-    updateMusicButton(false);
-});
-
-
-/* =========================================
-   TOAST MESSAGE
-========================================= */
-
-function showToast(message) {
-    toast.textContent = message;
-    toast.classList.add("show");
-
-    clearTimeout(toastTimer);
-
-    toastTimer = setTimeout(() => {
-        toast.classList.remove("show");
-    }, 2800);
-}
-
-
-/* =========================================
-   HEART EFFECTS
-========================================= */
-
-function createHeartBurst(element) {
-    const rect = element.getBoundingClientRect();
-
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-
-    for (let i = 0; i < 7; i++) {
-        const heart = document.createElement("span");
-
-        heart.textContent = i % 2 === 0 ? "♥" : "✦";
-        heart.style.position = "fixed";
-        heart.style.left = `${centerX}px`;
-        heart.style.top = `${centerY}px`;
-        heart.style.color = i % 2 === 0 ? "#ff729a" : "#e9bf80";
-        heart.style.fontSize = `${10 + Math.random() * 10}px`;
-        heart.style.pointerEvents = "none";
-        heart.style.zIndex = "30";
-        heart.style.transition = "transform 700ms ease, opacity 700ms ease";
-
-        document.body.appendChild(heart);
-
-        const angle = (Math.PI * 2 * i) / 7;
-        const distance = 25 + Math.random() * 35;
-
-        requestAnimationFrame(() => {
-            heart.style.transform =
-                `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px) scale(0.5)`;
-
-            heart.style.opacity = "0";
-        });
-
-        setTimeout(() => heart.remove(), 750);
-    }
-}
-
-function createFloatingHeart() {
-    const container = $("#floatingHearts");
-    const heart = document.createElement("span");
-
-    heart.className = "floating-heart";
-    heart.textContent = Math.random() > 0.35 ? "♥" : "✦";
-
-    heart.style.left = `${Math.random() * 100}%`;
-    heart.style.fontSize = `${12 + Math.random() * 18}px`;
-    heart.style.animationDuration = `${9 + Math.random() * 9}s`;
-
-    container.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 19000);
-}
-
-function createHeartRain() {
-    for (let i = 0; i < 18; i++) {
-        setTimeout(createFloatingHeart, i * 140);
-    }
-}
-
-heartTimer = setInterval(() => {
-    if (document.hidden) return;
-    createFloatingHeart();
-}, 1800);
-
-
-/* =========================================
-   REPLAY THE STORY
-========================================= */
-
-$("#replayBtn").addEventListener("click", () => {
-    state.date = null;
-    state.pickupTime = "10:00";
-    state.temple = "";
-    state.lunch = "";
-    state.picnic = "";
-    state.dinner = "";
-    state.dinnerTime = "19:00";
-    state.note = "";
-
-    $("#pickupTime").value = "10:00";
-    $("#dinnerTime").value = "19:00";
-    $("#note").value = "";
-
-    document.querySelectorAll(".choice-card.selected").forEach((card) => {
-        card.classList.remove("selected");
-        card.setAttribute("aria-pressed", "false");
-    });
-
-    visibleMonth = new Date();
-    visibleMonth.setDate(1);
-
-    selectedDateButton = null;
-
-    dateText.textContent = "Choose a date from the calendar";
-    dateStatus.textContent = "Tap a heart to choose our special day.";
-
-    renderCalendar();
-
-    // Music is intentionally NOT stopped or restarted.
-    // It continues playing while the story is replayed.
-
-    showPage("page1");
-});
-
-
-/* =========================================
-   INITIAL STATE
-========================================= */
-
-updateMusicButton(false);
-
-window.addEventListener("beforeunload", () => {
-    clearInterval(heartTimer);
-});
-
+        "https://wa.me/?text=" + encodeURIComponent(message); 
+ 
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer"); 
+}); 
+ 
+ 
+/* ========================================= 
+   MUSIC 
+========================================= */ 
+ 
+function updateMusicButton(isPlaying) { 
+    musicIcon.textContent = isPlaying ? "♫" : "♪"; 
+    musicLabel.textContent = isPlaying ? "Music Playing" : "Play Our Music"; 
+ 
+    musicBtn.setAttribute("aria-pressed", String(isPlaying)); 
+} 
+ 
+musicBtn.addEventListener("click", async () => { 
+    if (music.paused) { 
+        try { 
+            await music.play(); 
+            updateMusicButton(true); 
+            showToast("Let our song play in the background. ♫"); 
+        } catch (error) { 
+            updateMusicButton(false); 
+            showToast("Add song.mp3 to the website folder to play music."); 
+        } 
+    } else { 
+        music.pause(); 
+        updateMusicButton(false); 
+    } 
+}); 
+ 
+music.addEventListener("play", () => { 
+    updateMusicButton(true); 
+}); 
+ 
+music.addEventListener("pause", () => { 
+    updateMusicButton(false); 
+}); 
+ 
+ 
+/* ========================================= 
+   TOAST MESSAGE 
+========================================= */ 
+ 
+function showToast(message) { 
+    toast.textContent = message; 
+    toast.classList.add("show"); 
+ 
+    clearTimeout(toastTimer); 
+ 
+    toastTimer = setTimeout(() => { 
+        toast.classList.remove("show"); 
+    }, 2800); 
+} 
+ 
+ 
+/* ========================================= 
+   HEART EFFECTS 
+========================================= */ 
+ 
+function createHeartBurst(element) { 
+    const rect = element.getBoundingClientRect(); 
+ 
+    const centerX = rect.left + rect.width / 2; 
+    const centerY = rect.top + rect.height / 2; 
+ 
+    for (let i = 0; i < 7; i++) { 
+        const heart = document.createElement("span"); 
+ 
+        heart.textContent = i % 2 === 0 ? "♥" : "✦"; 
+        heart.style.position = "fixed"; 
+        heart.style.left = `${centerX}px`; 
+        heart.style.top = `${centerY}px`; 
+        heart.style.color = i % 2 === 0 ? "#ff729a" : "#e9bf80"; 
+        heart.style.fontSize = `${10 + Math.random() * 10}px`; 
+        heart.style.pointerEvents = "none"; 
+        heart.style.zIndex = "30"; 
+        heart.style.transition = "transform 700ms ease, opacity 700ms ease"; 
+ 
+        document.body.appendChild(heart); 
+ 
+        const angle = (Math.PI * 2 * i) / 7; 
+        const distance = 25 + Math.random() * 35; 
+ 
+        requestAnimationFrame(() => { 
+            heart.style.transform = 
+                `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px) scale(0.5)`; 
+ 
+            heart.style.opacity = "0"; 
+        }); 
+ 
+        setTimeout(() => heart.remove(), 750); 
+    } 
+} 
+ 
+function createFloatingHeart() { 
+    const container = $("#floatingHearts"); 
+    const heart = document.createElement("span"); 
+ 
+    heart.className = "floating-heart"; 
+    heart.textContent = Math.random() > 0.35 ? "♥" : "✦"; 
+ 
+    heart.style.left = `${Math.random() * 100}%`; 
+    heart.style.fontSize = `${12 + Math.random() * 18}px`; 
+    heart.style.animationDuration = `${9 + Math.random() * 9}s`; 
+ 
+    container.appendChild(heart); 
+ 
+    setTimeout(() => heart.remove(), 19000); 
+} 
+ 
+function createHeartRain() { 
+    for (let i = 0; i < 18; i++) { 
+        setTimeout(createFloatingHeart, i * 140); 
+    } 
+} 
+ 
+heartTimer = setInterval(() => { 
+    if (document.hidden) return; 
+    createFloatingHeart(); 
+}, 1800); 
+ 
+ 
+/* ========================================= 
+   REPLAY THE STORY 
+========================================= */ 
+ 
+$("#replayBtn").addEventListener("click", () => { 
+    state.date = null; 
+    state.pickupTime = "10:00"; 
+    state.temple = ""; 
+    state.lunch = ""; 
+    state.picnic = ""; 
+    state.dinner = ""; 
+    state.dinnerTime = "19:00"; 
+    state.note = ""; 
+ 
+    $("#pickupTime").value = "10:00"; 
+    $("#dinnerTime").value = "19:00"; 
+    $("#note").value = ""; 
+ 
+    document.querySelectorAll(".choice-card.selected").forEach((card) => { 
+        card.classList.remove("selected"); 
+        card.setAttribute("aria-pressed", "false"); 
+    }); 
+ 
+    visibleMonth = new Date(); 
+    visibleMonth.setDate(1); 
+ 
+    selectedDateButton = null; 
+ 
+    dateText.textContent = "Choose a date from the calendar"; 
+    dateStatus.textContent = "Tap a heart to choose our special day."; 
+ 
+    renderCalendar(); 
+ 
+    // Music is intentionally NOT stopped or restarted. 
+    // It continues playing while the story is replayed. 
+ 
+    showPage("page1"); 
+}); 
+ 
+ 
+/* ========================================= 
+   INITIAL STATE 
+========================================= */ 
+ 
+updateMusicButton(false); 
+ 
+window.addEventListener("beforeunload", () => { 
+    clearInterval(heartTimer); 
+}); 
+ 
 
 // CINEMATIC PASSWORD UNLOCK
+(function () {
+    function setupPassword() {
+        const passwordForm = document.getElementById("passwordForm");
+        const passwordInput = document.getElementById("secretPassword");
+        const passwordScreen = document.getElementById("passwordScreen");
+        const passwordError = document.getElementById("passwordError");
+        const passwordCard = document.querySelector(".password-card");
 
-document.addEventListener("DOMContentLoaded", function () {
-    const passwordForm = document.getElementById("passwordForm");
-    const passwordInput = document.getElementById("secretPassword");
-    const passwordScreen = document.getElementById("passwordScreen");
-    const passwordError = document.getElementById("passwordError");
-    const passwordCard = document.querySelector(".password-card");
+        if (!passwordForm || !passwordInput || !passwordScreen || !passwordError || !passwordCard) {
+            console.error("Password page elements are missing from index.html");
+            return;
+        }
 
-    if (
-        !passwordForm ||
-        !passwordInput ||
-        !passwordScreen ||
-        !passwordError ||
-        !passwordCard
-    ) {
-        return;
+        passwordForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const enteredPassword = passwordInput.value.trim();
+
+            if (enteredPassword === "love123") {
+                passwordError.textContent = "";
+                passwordScreen.classList.add("password-hidden");
+
+                setTimeout(function () {
+                    passwordScreen.style.display = "none";
+                }, 850);
+            } else {
+                passwordError.textContent = "आहो ❤️! पासवर्ड चुकीचा आहे. पुन्हा प्रयत्न करा ❤️";
+                passwordCard.classList.remove("password-shake");
+                void passwordCard.offsetWidth;
+                passwordCard.classList.add("password-shake");
+                passwordInput.value = "";
+                passwordInput.focus();
+            }
+        });
     }
 
-    passwordForm.addEventListener("submit", function (event) {
-        event.preventDefault();
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", setupPassword);
+    } else {
+        setupPassword();
+    }
+})();
 
-        const enteredPassword = passwordInput.value.trim();
-
-       if (enteredPassword.trim() === "love123") {
-            passwordError.textContent = "";
-            passwordScreen.classList.add("password-hidden");
-
-            // Remove the intro screen after its fade-out.
-            window.setTimeout(function () {
-                passwordScreen.style.display = "none";
-            }, 850);
-
-        } else {
-            passwordError.textContent =
-                "आहो ❤️! पासवर्ड चुकीचा आहे. पुन्हा प्रयत्न करा ❤️";
-
-            passwordCard.classList.remove("password-shake");
-
-            // Restart the shake animation.
-            void passwordCard.offsetWidth;
-
-            passwordCard.classList.add("password-shake");
-            passwordInput.value = "";
-            passwordInput.focus();
-        }
-    });
-});
-
+ 
